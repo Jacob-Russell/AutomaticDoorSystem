@@ -1,129 +1,24 @@
 # Architecture Diagrams
 
-This document contains the core architecture diagrams for the Automatic Door Opener interview implementation.
-
-Recommended submission set:
-
-1. Class Diagram
-2. State Machine Diagram
-3. Sequence Diagram
-
-These three diagrams are enough to show structure, runtime behavior, and the role of the State pattern without overwhelming the reviewer.
+These diagrams are intentionally simplified. They show the main control flow and ownership boundaries without repeating every member, enum, or helper method from the code.
 
 ## 1. Class Diagram
 
 ```mermaid
 classDiagram
-    class AutomaticDoorSystem {
-        -MotorPair motors
-        -DoorController controller
-        -ButtonDriver button
-        +handleButtonPressedInterrupt()
-        +handleButtonReleasedInterrupt()
-        +handleMotorInterrupts()
-        +refreshFromHardware()
-    }
+    class AutomaticDoorSystem
+    class DoorController
+    class State
+    class OpenState
+    class ClosedState
+    class MovingState
+    class FaultState
+    class MotorPair
+    class MotorDriver
+    class ButtonDriver
 
-    class DoorController {
-        -MotorPair& motor
-        -unique_ptr~State~ state_
-        -MovementDirection lastDirection_
-        -setStateFromPosition(position)
-        +TransitionTo(State*)
-        +onButtonPressed()
-        +updateStateFromHardware()
-        +commandOpen()
-        +commandClose()
-        +currentDirection()
-    }
-
-    class State {
-        <<abstract>>
-        #DoorController* context_
-        +set_context(controller)
-        +handleButtonPushed()*
-        +direction()
-    }
-
-    class OpenState {
-        +handleButtonPushed()
-    }
-
-    class ClosedState {
-        +handleButtonPushed()
-    }
-
-    class MovingState {
-        -MovementDirection direction_
-        +MovingState(direction)
-        +handleButtonPushed()
-        +direction()
-    }
-
-    class FaultState {
-        +handleButtonPushed()
-    }
-
-    class MotorPair {
-        -MotorDriver motor1
-        -MotorDriver motor2
-        +getPosition()
-        +isMoving()
-        +hasFault()
-        +handleInterrupts()
-        +commandOpen(speed)
-        +commandClose(speed)
-        +commandStop()
-    }
-
-    class MotorDriver {
-        -uintptr_t baseAddress
-        +getPosition()
-        +isMoving()
-        +getSpeed()
-        +commandOpen(speed)
-        +commandClose(speed)
-        +commandStop()
-        +handleOpenInterrupt()
-        +handleClosedInterrupt()
-    }
-
-    class ButtonDriver {
-        -uintptr_t baseAddress
-        +isPressed()
-        +acknowledgePressedInterrupt()
-        +acknowledgeReleasedInterrupt()
-    }
-
-    class MockHardware {
-        <<static>>
-        +writeRegister(address, value)
-        +readRegister(address)
-        +reset()
-    }
-
-    class DoorPosition {
-        <<enumeration>>
-        CLOSED
-        OPEN
-    }
-
-    class MovementDirection {
-        <<enumeration>>
-        NONE
-        OPENING
-        CLOSING
-    }
-
-    class MotorCommand {
-        <<enumeration>>
-        CLOSE
-        OPEN
-        STOP
-    }
-
-    AutomaticDoorSystem *-- MotorPair
     AutomaticDoorSystem *-- DoorController
+    AutomaticDoorSystem *-- MotorPair
     AutomaticDoorSystem *-- ButtonDriver
 
     DoorController --> MotorPair
@@ -135,93 +30,94 @@ classDiagram
     State <|-- FaultState
 
     MotorPair *-- MotorDriver
-    MotorDriver ..> MockHardware
-    ButtonDriver ..> MockHardware
-
-    DoorController ..> MovementDirection
-    MovingState ..> MovementDirection
-    MotorDriver ..> MotorCommand
-    MotorPair ..> DoorPosition
 ```
+
+Notes:
+- `AutomaticDoorSystem` is the top-level coordinator. It owns the system flow for button interrupts and motor interrupt refresh.
+- `DoorController` owns the active state object and delegates button behavior to the current concrete state.
+- `MotorPair` hides the two physical motors behind one actuator-facing interface.
+- `MovingState` stores direction of travel internally.
 
 ## 2. State Machine Diagram
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Closed : startup at position 0
-    [*] --> Open : startup at position 1023
-    [*] --> Moving : startup at intermediate position
-    [*] --> Fault : startup with motor disagreement
+    [*] --> Closed : startup at CLOSED
+    [*] --> Open : startup at OPEN
+    [*] --> Moving : startup between endpoints
+    [*] --> Fault : startup fault detected
 
-    Closed --> Moving : button pressed / commandOpen()
-    Open --> Moving : button pressed / commandClose()
-    Moving --> Moving : button pressed ignored
-    Fault --> Fault : button pressed ignored
+    Closed --> Moving : button pressed
+    Open --> Moving : button pressed
 
-    Moving --> Open : motor interrupts + position == OPEN
-    Moving --> Closed : motor interrupts + position == CLOSED
-    Moving --> Fault : contradictory end states\nor mismatched motion
+    Moving --> Open : motor refresh shows OPEN
+    Moving --> Closed : motor refresh shows CLOSED
+    Moving --> Fault : motor fault detected
 
-    Closed --> Fault : motor disagreement detected
-    Open --> Fault : motor disagreement detected
+    Closed --> Fault : motor fault detected
+    Open --> Fault : motor fault detected
 
-    note right of Moving
-      MovingState stores direction:
-      OPENING or CLOSING
-    end note
+    Moving --> Moving : button ignored
+    Fault --> Fault : button ignored
 ```
 
-## 3. Sequence Diagram
+Notes:
+- On startup, an intermediate position causes the controller to command the door open and enter `MovingState`.
+- `MovingState` remembers whether the door is opening or closing, but the state machine only shows the higher-level state names.
+- A motor fault means either contradictory end states or mismatched motion between the two motors.
+- `FaultState` is terminal in the current design. Recovery is intentionally out of scope.
+
+## 3. Sequence Diagrams
 
 ### Button Press While Door Is Closed
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant Button as ButtonDriver
+    participant External as External Caller
     participant System as AutomaticDoorSystem
+    participant Button as ButtonDriver
     participant Controller as DoorController
-    participant State as ClosedState
+    participant Closed as ClosedState
     participant Motors as MotorPair
-    participant M1 as MotorDriver(1)
-    participant M2 as MotorDriver(2)
 
-    User->>System: handleButtonPressedInterrupt()
+    External->>System: handleButtonPressedInterrupt()
     System->>Button: acknowledgePressedInterrupt()
     System->>Controller: onButtonPressed()
-    Controller->>State: handleButtonPushed()
-    State->>Controller: commandOpen()
+    Controller->>Closed: handleButtonPushed()
+    Closed->>Controller: commandOpen()
     Controller->>Motors: commandOpen()
-    Motors->>M1: commandOpen()
-    Motors->>M2: commandOpen()
-    State->>Controller: TransitionTo(MovingState(OPENING))
+    Closed->>Controller: TransitionTo(MovingState)
 ```
+
+Notes:
+- `AutomaticDoorSystem` performs two separate actions: acknowledge the hardware interrupt, then notify the controller.
+- `MotorPair::commandOpen()` sends the command out to both motor drivers.
 
 ### Motor Interrupt Refresh Flow
 
 ```mermaid
 sequenceDiagram
-    participant HW as Hardware Registers
+    participant External as External Caller
     participant System as AutomaticDoorSystem
     participant Motors as MotorPair
-    participant M1 as MotorDriver(1)
-    participant M2 as MotorDriver(2)
     participant Controller as DoorController
 
-    HW-->>System: motor interrupt pending
+    External->>System: handleMotorInterrupts()
     System->>Motors: handleInterrupts()
-    Motors->>M1: handleOpenInterrupt()/handleClosedInterrupt()
-    Motors->>M2: handleOpenInterrupt()/handleClosedInterrupt()
-    Motors-->>System: interrupt handled
-    System->>Controller: updateStateFromHardware()
-    Controller->>Motors: getPosition()
-    alt motors disagree or motion mismatches
-        Controller->>Controller: TransitionTo(FaultState)
-    else position == OPEN
-        Controller->>Controller: TransitionTo(OpenState)
-    else position == CLOSED
-        Controller->>Controller: TransitionTo(ClosedState)
-    else
-        Controller->>Controller: TransitionTo(MovingState)
+    Motors-->>System: interrupt handled?
+    alt at least one interrupt handled
+        System->>Controller: updateStateFromHardware()
+        Controller->>Motors: hasFault()
+        alt fault detected
+            Controller->>Controller: TransitionTo(FaultState)
+        else no fault
+            Controller->>Motors: getPosition()
+            Controller->>Controller: TransitionTo(Open/Closed/Moving)
+        end
     end
 ```
+
+Notes:
+- `MotorPair::handleInterrupts()` clears open and closed interrupt bits for both motor drivers.
+- The controller only refreshes state after the system sees that at least one motor interrupt was handled.
+- The transition to `Open`, `Closed`, `Moving`, or `Fault` is decided inside `DoorController::updateStateFromHardware()`.
