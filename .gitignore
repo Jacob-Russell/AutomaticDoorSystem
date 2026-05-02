@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Build artifacts
+*.o
+door_app
+test_runner
+
+# VSCode
+.vscode/
+
+# Logs
+*.log
