@@ -1,10 +1,10 @@
-# To view full documentation please visit: 
+## To view full documentation please visit: 
 https://jacob-russell.github.io/AutomaticDoorSystem/
 
-## AutomaticDoorSystem
+# AutomaticDoorSystem
 C++ interview implementation of a 2-motor, single push button, automatic door operating system
 
-# Software Requirements
+## Software Requirements
 
 This document traces the implemented software behavior back to the seven core system requirements from `ProjectContext.txt`.
 
@@ -29,7 +29,7 @@ This document traces the implemented software behavior back to the seven core sy
 7. At initialization, if the door is not fully open or fully closed, the system shall command the door open.
    Implemented in `DoorController` initialization logic. If the startup position is intermediate, the controller commands open.
 
-## Implementation Notes
+### Implementation Notes
 
 1. The current implementation uses a classic State pattern to model `OPEN`, `CLOSED`, and `MOVING`.
    A `FaultState` is also present to contain basic motor disagreement behavior.
@@ -39,7 +39,7 @@ This document traces the implemented software behavior back to the seven core sy
 3. The current implementation assumes both motors remain synchronized during normal operation. If they do not, contradictory end states or mismatched motion place the controller into `FaultState`.
 
 
-# Proposed Refinements
+## Proposed Refinements
 
 These items are not required to satisfy the current interview problem, but they are reasonable discussion points for future refinement.
 
@@ -70,7 +70,7 @@ These items are not required to satisfy the current interview problem, but they 
 9. Currently, motor disagreement drives the controller into `FaultState`, where button input is ignored and no recovery path is provided. A future enhancement would define whether disagreement should require operator reset, whether one motor may continue alone, and how the software should behave if a failure occurs while the door is fully open or fully closed.
 
 
-# Assumptions
+## Assumptions
 
 1. The two motors act as a single door actuator.
    The current design uses `MotorPair` to command both motors together for open, close, and stop. This means that the current implementation assumes the two motors represent one physical actuator pair and should report matching motion and end states.
