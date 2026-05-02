@@ -1,6 +1,10 @@
 ## To view full documentation please visit: 
 https://jacob-russell.github.io/AutomaticDoorSystem/
 
+## Architecture diagrams
+
+Architecture diagrams are available in [docs/ARCHITECTURE_DIAGRAMS.md](/Users/jacob/Desktop/PerformanceProject/docs/ARCHITECTURE_DIAGRAMS.md).
+
 # AutomaticDoorSystem
 C++ interview implementation of a 2-motor, single push button, automatic door operating system
 
