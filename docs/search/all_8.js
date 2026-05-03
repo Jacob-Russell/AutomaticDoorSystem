@@ -1,27 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
-  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['mock_5fhardware_2ecpp_2',['mock_hardware.cpp',['../mock__hardware_8cpp.html',1,'']]],
-  ['mock_5fhardware_2eh_3',['mock_hardware.h',['../mock__hardware_8h.html',1,'']]],
-  ['mockhardware_4',['MockHardware',['../class_mock_hardware.html',1,'']]],
-  ['motor1_5fbase_5faddress_5',['MOTOR1_BASE_ADDRESS',['../hardware__registers_8h.html#a8c8cc25eaeada537556530ee64fb8599',1,'hardware_registers.h']]],
-  ['motor2_5fbase_5faddress_6',['MOTOR2_BASE_ADDRESS',['../hardware__registers_8h.html#a01b0c0e7357e1a8bcddbd6a31cdec009',1,'hardware_registers.h']]],
-  ['motor_5fcommand_5fcommand_5fmask_7',['MOTOR_COMMAND_COMMAND_MASK',['../hardware__registers_8h.html#aa55aee7fb9bf3d8670a8cb805bb72957',1,'hardware_registers.h']]],
-  ['motor_5fcommand_5fenable_5fmask_8',['MOTOR_COMMAND_ENABLE_MASK',['../hardware__registers_8h.html#adf5c8d27d103c2b3f6f8223b25971645',1,'hardware_registers.h']]],
-  ['motor_5fcommand_5fspeed_5fmask_9',['MOTOR_COMMAND_SPEED_MASK',['../hardware__registers_8h.html#ae141fe115ee7ae31a0fc0295d3fcdf06',1,'hardware_registers.h']]],
-  ['motor_5fdriver_2ecpp_10',['motor_driver.cpp',['../motor__driver_8cpp.html',1,'']]],
-  ['motor_5fdriver_2eh_11',['motor_driver.h',['../motor__driver_8h.html',1,'']]],
-  ['motor_5finterrupt_5fclosed_5fmask_12',['MOTOR_INTERRUPT_CLOSED_MASK',['../hardware__registers_8h.html#a98ac86b8c1a211138a38d72123138534',1,'hardware_registers.h']]],
-  ['motor_5finterrupt_5fopen_5fmask_13',['MOTOR_INTERRUPT_OPEN_MASK',['../hardware__registers_8h.html#a4ac9d889103e60de768733b9b76a6d71',1,'hardware_registers.h']]],
-  ['motor_5fpair_2ecpp_14',['motor_pair.cpp',['../motor__pair_8cpp.html',1,'']]],
-  ['motor_5fpair_2eh_15',['motor_pair.h',['../motor__pair_8h.html',1,'']]],
-  ['motor_5fstatus_5fposition_5fmask_16',['MOTOR_STATUS_POSITION_MASK',['../hardware__registers_8h.html#ab6beaa8cb2c69674849e43f6dd49739c',1,'hardware_registers.h']]],
-  ['motor_5fstatus_5fspeed_5fmask_17',['MOTOR_STATUS_SPEED_MASK',['../hardware__registers_8h.html#a33f21cc5b0de13d6a25b251abf9169a4',1,'hardware_registers.h']]],
-  ['motor_5fstatus_5fstate_5fmask_18',['MOTOR_STATUS_STATE_MASK',['../hardware__registers_8h.html#a1a32f32fc8433b22348f2a115b2580b4',1,'hardware_registers.h']]],
-  ['motorcommand_19',['MotorCommand',['../types_8h.html#a8280cfd0a82bd795fce42722bb6bc0df',1,'types.h']]],
-  ['motordriver_20',['motordriver',['../class_motor_driver.html#a711e8abd302de793430d08b75d48d015',1,'MotorDriver::MotorDriver()'],['../class_motor_driver.html',1,'MotorDriver']]],
-  ['motorpair_21',['motorpair',['../class_motor_pair.html',1,'MotorPair'],['../class_motor_pair.html#a0709bdb9d60c60980b594e91e7cd81f0',1,'MotorPair::MotorPair()']]],
-  ['movementdirection_22',['MovementDirection',['../types_8h.html#a0b5e764f0ec9a407e9b8789f0259d754',1,'types.h']]],
-  ['movingstate_23',['movingstate',['../class_moving_state.html',1,'MovingState'],['../class_moving_state.html#ab25a32c3a3ed3e6ade69f1f482285565',1,'MovingState::MovingState()']]]
+  ['getposition_0',['getposition',['../class_motor_driver.html#ab86fb46fefa6cef95f0d51f80c8a8122',1,'MotorDriver::getPosition()'],['../class_motor_pair.html#afcf7c706e22f08cfd79cdea29fd19d5b',1,'MotorPair::getPosition()']]],
+  ['getspeed_1',['getSpeed',['../class_motor_driver.html#ab6d644296d8c9e4fedebe5f734767d6f',1,'MotorDriver']]]
 ];

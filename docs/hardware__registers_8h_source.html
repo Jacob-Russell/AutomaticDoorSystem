@@ -82,53 +82,46 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">hardware_registers.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="hardware__registers_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef HARDWARE_REGISTERS_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef HARDWARE_REGISTERS_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define HARDWARE_REGISTERS_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="mock__hardware_8h.html">mock_hardware.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;mock_hardware.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a8c8cc25eaeada537556530ee64fb8599">   12</a></span><span class="preprocessor">#define MOTOR1_BASE_ADDRESS 0x80000000</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a01b0c0e7357e1a8bcddbd6a31cdec009">   13</a></span><span class="preprocessor">#define MOTOR2_BASE_ADDRESS 0x70000000</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a6294f5276825fcf485773bdcfa129d82">   14</a></span><span class="preprocessor">#define BUTTON_BASE_ADDRESS 0x60000000</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MOTOR1_BASE_ADDRESS 0x80000000</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define MOTOR2_BASE_ADDRESS 0x70000000</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define BUTTON_BASE_ADDRESS 0x60000000</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a7ea8821879a8e617acb2b823320fc097">   16</a></span><span class="preprocessor">#define INTERRUPT_OFFSET 0x00</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#ac3959778b8b4ee593c16fa33a06d844c">   17</a></span><span class="preprocessor">#define STATUS_OFFSET    0x01</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#adb83c033ee492824badb77fa8ebd5c5d">   18</a></span><span class="preprocessor">#define COMMAND_OFFSET   0x02</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define INTERRUPT_OFFSET 0x00</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define STATUS_OFFSET    0x01</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define COMMAND_OFFSET   0x02</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a98ac86b8c1a211138a38d72123138534">   20</a></span><span class="preprocessor">#define MOTOR_INTERRUPT_CLOSED_MASK 0x00000001</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a4ac9d889103e60de768733b9b76a6d71">   21</a></span><span class="preprocessor">#define MOTOR_INTERRUPT_OPEN_MASK   0x00000002</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define MOTOR_INTERRUPT_CLOSED_MASK 0x00000001</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define MOTOR_INTERRUPT_OPEN_MASK   0x00000002</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a33f21cc5b0de13d6a25b251abf9169a4">   23</a></span><span class="preprocessor">#define MOTOR_STATUS_SPEED_MASK     0x00000007</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a1a32f32fc8433b22348f2a115b2580b4">   24</a></span><span class="preprocessor">#define MOTOR_STATUS_STATE_MASK     0x00000008</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#ab6beaa8cb2c69674849e43f6dd49739c">   25</a></span><span class="preprocessor">#define MOTOR_STATUS_POSITION_MASK  0x00003FF0</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define MOTOR_STATUS_SPEED_MASK     0x00000007</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define MOTOR_STATUS_STATE_MASK     0x00000008</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define MOTOR_STATUS_POSITION_MASK  0x00003FF0</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#aa55aee7fb9bf3d8670a8cb805bb72957">   27</a></span><span class="preprocessor">#define MOTOR_COMMAND_COMMAND_MASK  0x00000007</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#ae141fe115ee7ae31a0fc0295d3fcdf06">   28</a></span><span class="preprocessor">#define MOTOR_COMMAND_SPEED_MASK    0x00000038</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#adf5c8d27d103c2b3f6f8223b25971645">   29</a></span><span class="preprocessor">#define MOTOR_COMMAND_ENABLE_MASK   0x00000040</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#define MOTOR_COMMAND_COMMAND_MASK  0x00000007</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define MOTOR_COMMAND_SPEED_MASK    0x00000038</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define MOTOR_COMMAND_ENABLE_MASK   0x00000040</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a6e94ea3020d6d7ad888aaa07d2544039">   31</a></span><span class="preprocessor">#define BUTTON_INTERRUPT_PRESSED_MASK  0x00000001</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a5a8213c7d04c664bf2e6a4b6f49f8ca7">   32</a></span><span class="preprocessor">#define BUTTON_INTERRUPT_RELEASED_MASK 0x00000002</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#a799b859643797fd09fadf1bb64e69de3">   33</a></span><span class="preprocessor">#define BUTTON_STATUS_STATE_MASK    0x00000001</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#define BUTTON_INTERRUPT_PRESSED_MASK  0x00000001</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define BUTTON_INTERRUPT_RELEASED_MASK 0x00000002</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define BUTTON_STATUS_STATE_MASK    0x00000001</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#aec0c8e9257a0b06f783d9ab405e0f0db">   40</a></span><span class="keyword">inline</span> uint32_t <a class="code hl_function" href="hardware__registers_8h.html#aec0c8e9257a0b06f783d9ab405e0f0db">readRegister</a>(uintptr_t address) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">inline</span> uint32_t readRegister(uintptr_t address) {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="class_mock_hardware.html#aa8a98cbcdb9a28a0fc3bf50bc8180044">MockHardware::readRegister</a>(address);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
-</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="hardware__registers_8h.html#ad56c21b504f78e15869704b462a39e97">   49</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="hardware__registers_8h.html#ad56c21b504f78e15869704b462a39e97">writeRegister</a>(uintptr_t address, uint32_t value) {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">inline</span> <span class="keywordtype">void</span> writeRegister(uintptr_t address, uint32_t value) {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="class_mock_hardware.html#a202b0f0e01665ff335e1fc38023759a7">MockHardware::writeRegister</a>(address, value);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
-</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif </span><span class="comment">// HARDWARE_REGISTERS_H</span></div>
 <div class="ttc" id="aclass_mock_hardware_html_a202b0f0e01665ff335e1fc38023759a7"><div class="ttname"><a href="class_mock_hardware.html#a202b0f0e01665ff335e1fc38023759a7">MockHardware::writeRegister</a></div><div class="ttdeci">static void writeRegister(uintptr_t address, uint32_t value)</div><div class="ttdoc">Write a value into the mock register map.</div><div class="ttdef"><b>Definition</b> <a href="mock__hardware_8cpp_source.html#l00005">mock_hardware.cpp:5</a></div></div>
 <div class="ttc" id="aclass_mock_hardware_html_aa8a98cbcdb9a28a0fc3bf50bc8180044"><div class="ttname"><a href="class_mock_hardware.html#aa8a98cbcdb9a28a0fc3bf50bc8180044">MockHardware::readRegister</a></div><div class="ttdeci">static uint32_t readRegister(uintptr_t address)</div><div class="ttdoc">Read a value from the mock register map.</div><div class="ttdef"><b>Definition</b> <a href="mock__hardware_8cpp_source.html#l00009">mock_hardware.cpp:9</a></div></div>
-<div class="ttc" id="ahardware__registers_8h_html_ad56c21b504f78e15869704b462a39e97"><div class="ttname"><a href="hardware__registers_8h.html#ad56c21b504f78e15869704b462a39e97">writeRegister</a></div><div class="ttdeci">void writeRegister(uintptr_t address, uint32_t value)</div><div class="ttdoc">Write a 32-bit value to a memory-mapped register.</div><div class="ttdef"><b>Definition</b> <a href="hardware__registers_8h_source.html#l00049">hardware_registers.h:49</a></div></div>
-<div class="ttc" id="ahardware__registers_8h_html_aec0c8e9257a0b06f783d9ab405e0f0db"><div class="ttname"><a href="hardware__registers_8h.html#aec0c8e9257a0b06f783d9ab405e0f0db">readRegister</a></div><div class="ttdeci">uint32_t readRegister(uintptr_t address)</div><div class="ttdoc">Read a 32-bit value from a memory-mapped register.</div><div class="ttdef"><b>Definition</b> <a href="hardware__registers_8h_source.html#l00040">hardware_registers.h:40</a></div></div>
-<div class="ttc" id="amock__hardware_8h_html"><div class="ttname"><a href="mock__hardware_8h.html">mock_hardware.h</a></div><div class="ttdoc">In-memory mock for memory-mapped hardware registers.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

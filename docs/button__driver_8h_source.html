@@ -82,15 +82,15 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">button_driver.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="button__driver_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BUTTON_DRIVER_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BUTTON_DRIVER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BUTTON_DRIVER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="hardware__registers_8h.html">hardware_registers.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;hardware_registers.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_button_driver.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="class_button_driver.html">ButtonDriver</a> {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    uintptr_t baseAddress = <a class="code hl_define" href="hardware__registers_8h.html#a6294f5276825fcf485773bdcfa129d82">BUTTON_BASE_ADDRESS</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    uintptr_t baseAddress = BUTTON_BASE_ADDRESS;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_button_driver.html#a8626bc5ad412bb6dc9d2b82d961abac4">   22</a></span>    <a class="code hl_function" href="class_button_driver.html#a8626bc5ad412bb6dc9d2b82d961abac4">ButtonDriver</a>() = <span class="keywordflow">default</span>;</div>
@@ -114,8 +114,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclass_button_driver_html_a8626bc5ad412bb6dc9d2b82d961abac4"><div class="ttname"><a href="class_button_driver.html#a8626bc5ad412bb6dc9d2b82d961abac4">ButtonDriver::ButtonDriver</a></div><div class="ttdeci">ButtonDriver()=default</div></div>
 <div class="ttc" id="aclass_button_driver_html_ace9421275f7550584b543adcf09e0b04"><div class="ttname"><a href="class_button_driver.html#ace9421275f7550584b543adcf09e0b04">ButtonDriver::~ButtonDriver</a></div><div class="ttdeci">~ButtonDriver()</div><div class="ttdef"><b>Definition</b> <a href="button__driver_8h_source.html#l00023">button_driver.h:23</a></div></div>
 <div class="ttc" id="aclass_button_driver_html_ad3c97ea550a4c9d35b401c623f893cc4"><div class="ttname"><a href="class_button_driver.html#ad3c97ea550a4c9d35b401c623f893cc4">ButtonDriver::isPressed</a></div><div class="ttdeci">bool isPressed()</div><div class="ttdoc">Read the current pressed/released state from hardware.</div><div class="ttdef"><b>Definition</b> <a href="button__driver_8cpp_source.html#l00004">button_driver.cpp:4</a></div></div>
-<div class="ttc" id="ahardware__registers_8h_html"><div class="ttname"><a href="hardware__registers_8h.html">hardware_registers.h</a></div><div class="ttdoc">Register addresses, offsets, masks, and register access helpers.</div></div>
-<div class="ttc" id="ahardware__registers_8h_html_a6294f5276825fcf485773bdcfa129d82"><div class="ttname"><a href="hardware__registers_8h.html#a6294f5276825fcf485773bdcfa129d82">BUTTON_BASE_ADDRESS</a></div><div class="ttdeci">#define BUTTON_BASE_ADDRESS</div><div class="ttdef"><b>Definition</b> <a href="hardware__registers_8h_source.html#l00014">hardware_registers.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

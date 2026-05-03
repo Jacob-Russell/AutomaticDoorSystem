@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['onbuttonpressed_0',['onButtonPressed',['../class_door_controller.html#a463bd6fc0b0b3679f8b03aa1fe5abbc7',1,'DoorController']]],
-  ['open_1',['open',['../types_8h.html#af7a2d1c2ec3fcab4e8e82aaf75f4377faa38bd5138bf35514df41a1795ebbf5c3',1,'OPEN:&#160;types.h'],['../types_8h.html#a8280cfd0a82bd795fce42722bb6bc0dfaa38bd5138bf35514df41a1795ebbf5c3',1,'OPEN:&#160;types.h']]],
-  ['opening_2',['OPENING',['../types_8h.html#a0b5e764f0ec9a407e9b8789f0259d754a71a74f5026f5642a42a229e04cf1efdc',1,'types.h']]],
-  ['openstate_3',['OpenState',['../class_open_state.html',1,'']]]
+  ['implementation_20notes_0',['Implementation Notes',['../requirements_page.html#autotoc_md11',1,'']]],
+  ['is_20closed_1',['Button Press While Door Is Closed',['../md_docs_2resources_2_a_r_c_h_i_t_e_c_t_u_r_e___d_i_a_g_r_a_m_s.html#autotoc_md4',1,'']]],
+  ['ismoving_2',['ismoving',['../class_motor_driver.html#a6edd93fcb23757930f5667b17ba058c6',1,'MotorDriver::isMoving()'],['../class_motor_pair.html#ac851b9228b132ad672ab1fedf95a8154',1,'MotorPair::isMoving()']]],
+  ['ispressed_3',['isPressed',['../class_button_driver.html#ad3c97ea550a4c9d35b401c623f893cc4',1,'ButtonDriver']]]
 ];

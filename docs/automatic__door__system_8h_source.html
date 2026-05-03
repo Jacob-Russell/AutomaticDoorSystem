@@ -82,12 +82,12 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">automatic_door_system.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="automatic__door__system_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef AUTOMATIC_DOOR_SYSTEM_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef AUTOMATIC_DOOR_SYSTEM_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define AUTOMATIC_DOOR_SYSTEM_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="button__driver_8h.html">button_driver.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="door__controller_8h.html">door_controller.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="motor__pair_8h.html">motor_pair.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;button_driver.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;door_controller.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;motor_pair.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_automatic_door_system.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="class_automatic_door_system.html">AutomaticDoorSystem</a> {</div>
@@ -110,7 +110,6 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif </span><span class="comment">// AUTOMATIC_DOOR_SYSTEM_H</span></div>
-<div class="ttc" id="abutton__driver_8h_html"><div class="ttname"><a href="button__driver_8h.html">button_driver.h</a></div><div class="ttdoc">Memory-mapped I/O wrapper for the push button device.</div></div>
 <div class="ttc" id="aclass_automatic_door_system_html"><div class="ttname"><a href="class_automatic_door_system.html">AutomaticDoorSystem</a></div><div class="ttdoc">System-level facade for the automatic door application.</div><div class="ttdef"><b>Definition</b> <a href="automatic__door__system_8h_source.html#l00022">automatic_door_system.h:22</a></div></div>
 <div class="ttc" id="aclass_automatic_door_system_html_a4af375385b5a5e23e4dfac45f9b17ec8"><div class="ttname"><a href="class_automatic_door_system.html#a4af375385b5a5e23e4dfac45f9b17ec8">AutomaticDoorSystem::handleMotorInterrupts</a></div><div class="ttdeci">void handleMotorInterrupts()</div><div class="ttdoc">Handle pending motor interrupts and refresh controller state.</div><div class="ttdef"><b>Definition</b> <a href="automatic__door__system_8cpp_source.html#l00015">automatic_door_system.cpp:15</a></div></div>
 <div class="ttc" id="aclass_automatic_door_system_html_a88603f87b552692da9f093e396e42814"><div class="ttname"><a href="class_automatic_door_system.html#a88603f87b552692da9f093e396e42814">AutomaticDoorSystem::AutomaticDoorSystem</a></div><div class="ttdeci">AutomaticDoorSystem()</div><div class="ttdoc">Construct the door system and its owned collaborators.</div><div class="ttdef"><b>Definition</b> <a href="automatic__door__system_8cpp_source.html#l00003">automatic_door_system.cpp:3</a></div></div>
@@ -120,8 +119,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclass_button_driver_html"><div class="ttname"><a href="class_button_driver.html">ButtonDriver</a></div><div class="ttdoc">Driver for button status and interrupt acknowledgment.</div><div class="ttdef"><b>Definition</b> <a href="button__driver_8h_source.html#l00017">button_driver.h:17</a></div></div>
 <div class="ttc" id="aclass_door_controller_html"><div class="ttname"><a href="class_door_controller.html">DoorController</a></div><div class="ttdoc">Domain controller for door behavior.</div><div class="ttdef"><b>Definition</b> <a href="door__controller_8h_source.html#l00023">door_controller.h:23</a></div></div>
 <div class="ttc" id="aclass_motor_pair_html"><div class="ttname"><a href="class_motor_pair.html">MotorPair</a></div><div class="ttdoc">Coordinates the two drive motors as one door actuator.</div><div class="ttdef"><b>Definition</b> <a href="motor__pair_8h_source.html#l00017">motor_pair.h:17</a></div></div>
-<div class="ttc" id="adoor__controller_8h_html"><div class="ttname"><a href="door__controller_8h.html">door_controller.h</a></div><div class="ttdoc">State-pattern context for the automatic door control logic.</div></div>
-<div class="ttc" id="amotor__pair_8h_html"><div class="ttname"><a href="motor__pair_8h.html">motor_pair.h</a></div><div class="ttdoc">Paired actuator abstraction built on top of two motor drivers.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

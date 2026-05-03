@@ -82,18 +82,18 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">motor_driver.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="motor__driver_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MOTOR_DRIVER_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MOTOR_DRIVER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MOTOR_DRIVER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="hardware__registers_8h.html">hardware_registers.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">types.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;hardware_registers.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;types.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_motor_driver.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="class_motor_driver.html">MotorDriver</a> {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    uintptr_t baseAddress;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    uint32_t buildCommand(<a class="code hl_enumeration" href="types_8h.html#a8280cfd0a82bd795fce42722bb6bc0df">MotorCommand</a> cmd, <span class="keywordtype">int</span> speed, <span class="keywordtype">bool</span> enable);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    uint32_t buildCommand(MotorCommand cmd, <span class="keywordtype">int</span> speed, <span class="keywordtype">bool</span> enable);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">void</span> clearInterruptFlag(uint32_t flagMask);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    uint32_t readInterruptRegister();</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
@@ -130,9 +130,6 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclass_motor_driver_html_ab6d644296d8c9e4fedebe5f734767d6f"><div class="ttname"><a href="class_motor_driver.html#ab6d644296d8c9e4fedebe5f734767d6f">MotorDriver::getSpeed</a></div><div class="ttdeci">int getSpeed()</div><div class="ttdoc">Read the current motor speed from hardware.</div><div class="ttdef"><b>Definition</b> <a href="motor__driver_8cpp_source.html#l00041">motor_driver.cpp:41</a></div></div>
 <div class="ttc" id="aclass_motor_driver_html_ab86fb46fefa6cef95f0d51f80c8a8122"><div class="ttname"><a href="class_motor_driver.html#ab86fb46fefa6cef95f0d51f80c8a8122">MotorDriver::getPosition</a></div><div class="ttdeci">int getPosition()</div><div class="ttdoc">Read the current motor position from hardware.</div><div class="ttdef"><b>Definition</b> <a href="motor__driver_8cpp_source.html#l00019">motor_driver.cpp:19</a></div></div>
 <div class="ttc" id="aclass_motor_driver_html_ad980624251d49c73de65627e3be6b645"><div class="ttname"><a href="class_motor_driver.html#ad980624251d49c73de65627e3be6b645">MotorDriver::handleOpenInterrupt</a></div><div class="ttdeci">bool handleOpenInterrupt()</div><div class="ttdoc">Acknowledge an open-position interrupt if present.</div><div class="ttdef"><b>Definition</b> <a href="motor__driver_8cpp_source.html#l00087">motor_driver.cpp:87</a></div></div>
-<div class="ttc" id="ahardware__registers_8h_html"><div class="ttname"><a href="hardware__registers_8h.html">hardware_registers.h</a></div><div class="ttdoc">Register addresses, offsets, masks, and register access helpers.</div></div>
-<div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div><div class="ttdoc">Shared enum types used by the automatic door application.</div></div>
-<div class="ttc" id="atypes_8h_html_a8280cfd0a82bd795fce42722bb6bc0df"><div class="ttname"><a href="types_8h.html#a8280cfd0a82bd795fce42722bb6bc0df">MotorCommand</a></div><div class="ttdeci">MotorCommand</div><div class="ttdoc">Commands supported by the motor command register.</div><div class="ttdef"><b>Definition</b> <a href="types_8h_source.html#l00029">types.h:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
