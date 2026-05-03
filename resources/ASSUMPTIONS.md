@@ -31,4 +31,4 @@
     The current solution detects basic motor disagreement and transitions to `FaultState`, but it does not implement explicit fault recovery or operator reset behavior.
 
 11. Dynamic memory allocation is used for state object construction in this implementation.
-    Each `TransitionTo` call allocates a new concrete state object using `new`. This approach was chosen to demonstrate the State pattern clearly. It does not satisfy NASA's "Power of Ten" rule prohibiting dynamic allocation after initialization. In a production system, all four state objects would be pre-allocated statically at startup and reused, or constructed into a fixed-size state pool using placement-new. Either approach preserves the State pattern structure while eliminating non-deterministic heap allocation.
+    Each `TransitionTo` call allocates a new concrete state object using `new`. This approach was chosen to demonstrate the State pattern clearly. See refinement #10: [resources/REFINEMENTS.md](REFINEMENTS.md).
