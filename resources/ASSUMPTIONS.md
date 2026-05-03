@@ -31,4 +31,4 @@
     The current solution detects basic motor disagreement and transitions to `FaultState`, but it does not implement explicit fault recovery or operator reset behavior.
 
 11. Dynamic memory allocation is used for state object construction in this implementation.
-    Each `TransitionTo` call allocates a new concrete state object using `new`. This approach was chosen to demonstrate the State pattern clearly. See refinement #10: [resources/REFINEMENTS.md](REFINEMENTS.md).
+    Each `TransitionTo` call allocates a new concrete state object using `new`. This approach was chosen to demonstrate the State pattern clearly. See refinement #8: [resources/REFINEMENTS.md](REFINEMENTS.md).
