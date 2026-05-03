@@ -4,7 +4,7 @@ The following diagrams are the final architecture views for this submission. The
 
 ## 1. Class Diagram
 
-![Class Diagram](resources/ClassDiagram.jpg)
+![Class Diagram](ClassDiagram.jpg)
 
 Notes:
 - `AutomaticDoorSystem` is the top-level coordinator. It owns the button driver, door controller, and motor pair, and acts as the application boundary between hardware events and door-control behavior.
@@ -17,7 +17,7 @@ Notes:
 
 ## 2. State Machine Diagram
 
-![State Machine Diagram](resources/StateMachineDiagram.jpg)
+![State Machine Diagram](StateMachineDiagram.jpg)
 
 Notes:
 - A button press in `OpenState` commands the door to close and transitions the controller into `MovingState`.
@@ -33,7 +33,7 @@ Notes:
 
 ### Button Press While Door Is Closed
 
-![Sequence Diagram](resources/SequenceDiagram.jpg)
+![Sequence Diagram](SequenceDiagram.jpg)
 
 Notes:
 - The sequence begins when an external runtime layer, interrupt handler, or polling loop calls `AutomaticDoorSystem::handleButtonPressedInterrupt()`.
