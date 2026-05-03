@@ -29,9 +29,6 @@ $(TARGET): $(OBJECTS) $(MAIN_OBJ)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-run: $(TARGET)
-	./$(TARGET)
-
 test: $(OBJECTS) $(TEST_OBJ)
 	$(CXX) $(CXXFLAGS) -o test_runner $(OBJECTS) $(TEST_OBJ)
 	./test_runner
