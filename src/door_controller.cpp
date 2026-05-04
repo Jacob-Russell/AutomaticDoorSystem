@@ -1,6 +1,6 @@
 #include "door_controller.h"
 #include "motor_pair.h"
-#include <iostream>
+#include "debug.h"
 
 DoorController::DoorController(MotorPair &motor)
     : motor(motor), state_(nullptr), lastDirection_(MovementDirection::NONE) {
@@ -10,7 +10,7 @@ DoorController::DoorController(MotorPair &motor)
     if (!motor.hasFault() &&
         initialPosition != static_cast<int>(DoorPosition::OPEN) &&
         initialPosition != static_cast<int>(DoorPosition::CLOSED)) {
-        std::cout << "[DoorController] Init: Intermediate position - forcing OPEN\n";
+        LOG("[DoorController] Init: Intermediate position - forcing OPEN\n");
         motor.commandOpen();
         TransitionTo(new MovingState(MovementDirection::OPENING));
     }
@@ -36,7 +36,7 @@ void DoorController::setStateFromPosition(int position) {
 }
 
 void DoorController::TransitionTo(State *nextState) {
-    std::cout << "[DoorController] Transition to " << typeid(*nextState).name() << "\n";
+    LOG("[DoorController] Transition to " << typeid(*nextState).name() << "\n");
     this->state_.reset(nextState);
     this->state_->set_context(this);
 }

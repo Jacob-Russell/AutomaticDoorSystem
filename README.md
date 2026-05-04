@@ -19,6 +19,7 @@ Build and test using the provided Makefile:
 | `make`       | Compiles all source files                |
 | `make test`  | Builds and runs the full test suite      |
 | `make clean` | Removes all build artifacts              |
+| `-DDEBUG`    | Compile with DEBUG.h LOG messages        |
 
 ## Documentation
 

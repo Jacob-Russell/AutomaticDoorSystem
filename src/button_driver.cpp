@@ -1,5 +1,5 @@
 #include "button_driver.h"
-#include <iostream>
+#include "debug.h"
 
 bool ButtonDriver::isPressed() {
     uintptr_t statusAddress = baseAddress + STATUS_OFFSET;
@@ -13,12 +13,12 @@ bool ButtonDriver::isPressed() {
 }
 
 void ButtonDriver::acknowledgePressedInterrupt() {
-    std::cout << "[ButtonDriver] Interrupt: Button PRESSED\n";
+    LOG("[ButtonDriver] Interrupt: Button PRESSED\n");
     clearInterruptFlag(BUTTON_INTERRUPT_PRESSED_MASK);
 }
 
 void ButtonDriver::acknowledgeReleasedInterrupt() {
-    std::cout << "[ButtonDriver] Interrupt: Button RELEASED\n";
+    LOG("[ButtonDriver] Interrupt: Button RELEASED\n");
     
     // Clear interrupt flag
     clearInterruptFlag(BUTTON_INTERRUPT_RELEASED_MASK);
@@ -31,5 +31,5 @@ void ButtonDriver::clearInterruptFlag(uint32_t flagMask) {
     interruptValue |= flagMask;
     writeRegister(interruptAddress, interruptValue);
     
-    std::cout << "[ButtonDriver] Interrupt flag cleared\n";
+    LOG("[ButtonDriver] Interrupt flag cleared\n");
 }

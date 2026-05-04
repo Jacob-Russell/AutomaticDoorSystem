@@ -29,5 +29,5 @@ These items are not required to satisfy the current interview problem, but they 
 9. Harden `hasFault()` and `updateStateFromHardware()` against mid-read interrupts.
     Both functions perform multiple separate register reads that can be interleaved with hardware interrupts, producing an inconsistent snapshot. On real hardware, interrupts should be disabled for the duration of the read sequence, or hardware capture registers should be used if available. The current mock does not model concurrent register access, so this hazard is not exercised by the test suite.
 
-10. Replace `std::cout` diagnostics with a compile-time debug flag.
+10. FIXED! Replace `std::cout` diagnostics with a compile-time debug flag.
     The current implementation uses `std::cout` throughout state transitions, interrupt handlers, and motor commands. In a real embedded environment (as far as I know) stdout does not exist, and I/O in interrupt-adjacent paths introduces unbounded latency. All diagnostic output should be conditionally compiled using a debug flag and replaced with a platform-appropriate logging mechanism in production builds.
