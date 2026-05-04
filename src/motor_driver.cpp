@@ -1,18 +1,18 @@
 #include "motor_driver.h"
-#include <iostream>
+#include "debug.h"
 
 MotorDriver::MotorDriver(int motorNumber) {
     
     if (motorNumber == 1) {
         this->baseAddress = MOTOR1_BASE_ADDRESS;
-        std::cout << "[MotorDriver] Initialized Motor 1 @ 0x80000000\n";
+        LOG("[MotorDriver] Initialized Motor 1 @ 0x80000000\n");
     }
     else if (motorNumber == 2) {
         this->baseAddress = MOTOR2_BASE_ADDRESS;
-        std::cout << "[MotorDriver] Initialized Motor 2 @ 0x70000000\n";
+        LOG("[MotorDriver] Initialized Motor 2 @ 0x70000000\n");
     }
     else {
-        std::cerr << "[MotorDriver] ERROR: Invalid motor number\n";
+        LOG("[MotorDriver] ERROR: Invalid motor number\n");
     }
 }
 
@@ -49,7 +49,7 @@ int MotorDriver::getSpeed() {
 }
 
 void MotorDriver::commandOpen(int speed) {
-    std::cout << "[MotorDriver] Commanding OPEN at speed " << speed << "\n";
+    LOG("[MotorDriver] Commanding OPEN at speed " << speed << "\n");
     
     // Build command with: OPEN (1), speed, enable (1)
     uint32_t command = buildCommand(MotorCommand::OPEN, speed, true);
@@ -60,7 +60,7 @@ void MotorDriver::commandOpen(int speed) {
 }
 
 void MotorDriver::commandClose(int speed) {
-    std::cout << "[MotorDriver] Commanding CLOSE at speed " << speed << "\n";
+    LOG("[MotorDriver] Commanding CLOSE at speed " << speed << "\n");
     
     // Build command with: CLOSE (0), speed, enable (1)
     uint32_t command = buildCommand(MotorCommand::CLOSE, speed, true);
@@ -71,7 +71,7 @@ void MotorDriver::commandClose(int speed) {
 }
 
 void MotorDriver::commandStop() {
-    std::cout << "[MotorDriver] Commanding STOP\n";
+    LOG("[MotorDriver] Commanding STOP\n");
     
     // Build command with: STOP (2), no speed, enable (1)
     uint32_t command = buildCommand(MotorCommand::STOP, 0, true);
@@ -89,7 +89,7 @@ bool MotorDriver::handleOpenInterrupt() {
         return false;
     }
 
-    std::cout << "[MotorDriver] Clearing OPEN interrupt\n";
+    LOG("[MotorDriver] Clearing OPEN interrupt\n");
     clearInterruptFlag(MOTOR_INTERRUPT_OPEN_MASK);
     return true;
 }
@@ -99,7 +99,7 @@ bool MotorDriver::handleClosedInterrupt() {
         return false;
     }
 
-    std::cout << "[MotorDriver] Clearing CLOSED interrupt\n";
+    LOG("[MotorDriver] Clearing CLOSED interrupt\n");
     clearInterruptFlag(MOTOR_INTERRUPT_CLOSED_MASK);
     return true;
 }
@@ -132,7 +132,7 @@ void MotorDriver::clearInterruptFlag(uint32_t flagMask) {
     
     writeRegister(interruptAddress, interruptValue);
     
-    std::cout << "[MotorDriver] Interrupt flag cleared\n";
+    LOG("[MotorDriver] Interrupt flag cleared\n");
 }
 
 uint32_t MotorDriver::readInterruptRegister() {

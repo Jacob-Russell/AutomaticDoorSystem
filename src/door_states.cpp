@@ -1,15 +1,15 @@
 #include "door_states.h"
 #include "door_controller.h"
-#include <iostream>
+#include "debug.h"
 
 void OpenState::handleButtonPushed() {
-    std::cout << "[OpenState] Button -> command CLOSE\n";
+    LOG("[OpenState] Button -> command CLOSE\n");
     this->context_->commandClose();
     this->context_->TransitionTo(new MovingState(MovementDirection::CLOSING));
 }
 
 void ClosedState::handleButtonPushed() {
-    std::cout << "[ClosedState] Button -> command OPEN\n";
+    LOG("[ClosedState] Button -> command OPEN\n");
     this->context_->commandOpen();
     this->context_->TransitionTo(new MovingState(MovementDirection::OPENING));
 }
@@ -17,7 +17,7 @@ void ClosedState::handleButtonPushed() {
 MovingState::MovingState(MovementDirection direction) : direction_(direction) {}
 
 void MovingState::handleButtonPushed() {
-    std::cout << "[MovingState] Button ignored while MOVING\n";
+    LOG("[MovingState] Button ignored while MOVING\n");
 }
 
 MovementDirection MovingState::direction() const {
@@ -25,5 +25,5 @@ MovementDirection MovingState::direction() const {
 }
 
 void FaultState::handleButtonPushed() {
-    std::cout << "[FaultState] Button ignored while FAULTED\n";
+    LOG("[FaultState] Button ignored while FAULTED\n");
 }

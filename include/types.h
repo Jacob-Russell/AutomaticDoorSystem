@@ -2,11 +2,6 @@
 #define TYPES_H
 
 /**
- * @file types.h
- * @brief Shared enum types used by the automatic door application.
- */
-
-/**
  * @brief Door endpoint positions defined by the customer memo.
  */
 enum class DoorPosition {
